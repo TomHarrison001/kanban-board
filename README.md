@@ -5,6 +5,7 @@ This is an application built using:
 - React Native
 - Expo
 - TypeScript
+- Convex
 
 ## Features
 
