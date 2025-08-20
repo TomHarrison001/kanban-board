@@ -11,7 +11,7 @@ export default function RootLayout() {
     <ConvexProvider client={convex}>
       <ThemeProvider>
         <Stack screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="(tabs)" options={{ title: "Home" }}/>
+          <Stack.Screen name="(tabs)" options={{ title: "Home" }} />
         </Stack>
       </ThemeProvider>
     </ConvexProvider>

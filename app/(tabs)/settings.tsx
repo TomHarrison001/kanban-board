@@ -6,7 +6,7 @@ const Settings = () => {
       <Text style={styles.content}>Settings.</Text>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   content: {
     color: "#c3c3c3",
     fontSize: 24,
-  }
+  },
 });
 
 export default Settings;
