@@ -1,46 +1,24 @@
-import { api } from "@/convex/_generated/api";
+import { createHomeStyles } from "@/assets/styles/home.style";
 import useTheme from "@/hooks/useTheme";
-import { useMutation, useQuery } from "convex/react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
+import { StatusBar, Text, TouchableOpacity } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Index() {
-  const { toggleDarkMode } = useTheme();
-  const addTodo = useMutation(api.todos.addTodo)
-  const clearAllTodos = useMutation(api.todos.clearAllTodos);
-  const todos = useQuery(api.todos.getTodos);
-  console.log(todos);
+  const { toggleDarkMode, colours } = useTheme();
+  const homeStyles = createHomeStyles(colours);
   return (
-    <View style={styles.container}>
-      <Text style={styles.content}>Actions.</Text>
-      <TouchableOpacity onPress={toggleDarkMode}>
-        <Text style={styles.content}>
-          Toggle Dark Mode.
-        </Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => addTodo({ text: "A new to-do." })}>
-        <Text style={styles.content}>
-          Add To-Do
-        </Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => clearAllTodos()}>
-        <Text style={styles.content}>
-          Clear All
-        </Text>
-      </TouchableOpacity>
-    </View>
+    <LinearGradient
+      colors={colours.gradients.background}
+      style={homeStyles.container}
+    >
+      <StatusBar barStyle={colours.statusBarStyle} />
+      <SafeAreaView style={homeStyles.safeArea}>
+        <Text>Actions.</Text>
+        <TouchableOpacity onPress={toggleDarkMode}>
+          <Text>Toggle Dark Mode.</Text>
+        </TouchableOpacity>
+      </SafeAreaView>
+    </LinearGradient>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#2d2d2d",
-  },
-
-  content: {
-    color: "#c3c3c3",
-    fontSize: 24,
-  }
-});
