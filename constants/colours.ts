@@ -12,11 +12,12 @@ export interface ColourScheme {
   gradients: {
     background: [string, string];
     surface: [string, string];
-    textMuted: [string, string];
+    muted: [string, string];
     primary: [string, string];
     success: [string, string];
     warning: [string, string];
     danger: [string, string];
+    empty: [string, string];
   };
   backgrounds: {
     input: string;
@@ -39,11 +40,12 @@ export const lightColours: ColourScheme = {
   gradients: {
     background: ["#f8fafc", "#e2e8f0"],
     surface: ["#ffffff", "#f8fafc"],
-    textMuted: ["#9ca3af", "#6b7280"],
+    muted: ["#9ca3af", "#6b7280"],
     primary: ["#3b82f6", "#1d4ed8"],
     success: ["#10b981", "#059669"],
     warning: ["#f59e0b", "#d97706"],
     danger: ["#ef4444", "#dc2626"],
+    empty: ["#f3f4f6", "#e5e7eb"],
   },
   backgrounds: {
     input: "#ffffff",
@@ -66,11 +68,12 @@ export const darkColours: ColourScheme = {
   gradients: {
     background: ["#0f172a", "#1e293b"],
     surface: ["#1e293b", "#334155"],
-    textMuted: ["#374151", "#4b5563"],
+    muted: ["#374151", "#4b5563"],
     primary: ["#3b82f6", "#1d4ed8"],
     success: ["#10b981", "#059669"],
     warning: ["#f59e0b", "#d97706"],
     danger: ["#ef4444", "#dc2626"],
+    empty: ["#374151", "#4b5563"],
   },
   backgrounds: {
     input: "#1e293b",

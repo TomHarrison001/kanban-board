@@ -43,7 +43,7 @@ const TodoInput = () => {
             colors={
               newTodo.trim()
                 ? colours.gradients.primary
-                : colours.gradients.textMuted
+                : colours.gradients.muted
             }
             style={[
               homeStyles.addButton,
