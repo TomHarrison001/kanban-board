@@ -26,6 +26,7 @@ export default function Index() {
   const homeStyles = createHomeStyles(colours);
   const todos = useQuery(api.todos.getTodos);
   const toggleTodo = useMutation(api.todos.toggleTodo);
+  const deleteTodo = useMutation(api.todos.deleteTodo);
   const isLoading = todos === undefined;
   if (isLoading) return <LoadingSpinner />;
 
@@ -35,6 +36,23 @@ export default function Index() {
     } catch (error) {
       console.log("Failed to toggle todo.", error);
       Alert.alert("Error", "Failed to toggle todo.");
+    }
+  };
+
+  const handleDeleteTodo = async (id: Id<"todos">) => {
+    //Alert.alert("Delete Todo", "Are you sure you want to delete this todo?", [
+    //  { text: "Cancel", style: "cancel" },
+    //  {
+    //    text: "Delete",
+    //    style: "destructive",
+    //    onPress: () => deleteTodo({ id }),
+    //  },
+    //]);
+    try {
+      await deleteTodo({ id });
+    } catch (error) {
+      console.log("Failed to delete todo.", error);
+      Alert.alert("Error", "Failed to delete todo.");
     }
   };
 
@@ -93,7 +111,10 @@ export default function Index() {
                   <Ionicons name="pencil" size={14} color="#fff" />
                 </LinearGradient>
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => {}} activeOpacity={0.8}>
+              <TouchableOpacity
+                onPress={() => handleDeleteTodo(item._id)}
+                activeOpacity={0.8}
+              >
                 <LinearGradient
                   colors={colours.gradients.danger}
                   style={homeStyles.actionButton}
