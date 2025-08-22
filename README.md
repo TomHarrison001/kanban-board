@@ -21,6 +21,7 @@ This is an application built using:
 2. Install dependencies `npm install`
 3. Start the app `npx expo start`
 4. Open http://localhost:8081/ to view the app in web mode
+5. In a new terminal, setup convex dev deployment `npx convex dev`
 
 ## 📹 Screenshots
 
