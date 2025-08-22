@@ -9,10 +9,11 @@ This is an application built using:
 
 ## Features
 
-- (tabs) directory
-- styled index screen
-- styled settings screen
-- multiple tabs screens
+- Create todos
+- Edit/Update todos
+- Delete/Complete todos
+- Dark mode
+- Progress bar
 
 ## Get started
 
@@ -21,6 +22,12 @@ This is an application built using:
 3. Start the app `npx expo start`
 4. Open http://localhost:8081/ to view the app in web mode
 
-## 📹 Screenshot
+## 📹 Screenshots
 
-![Screenshot](/screenshot.png)
+### Actions Page
+
+![Actions Page](/actionsPage.png)
+
+### Settings Page
+
+![Settings Page](/settingsPage.png)
