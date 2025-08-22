@@ -1,25 +1,45 @@
-import { StyleSheet, Text, View } from "react-native";
+import { createSettingsStyles } from "@/assets/styles/settings.style";
+import DangerZone from "@/components/DangerZone";
+import Preferences from "@/components/Preferences";
+import ProgressStats from "@/components/ProgressStats";
+import useTheme from "@/hooks/useTheme";
+import { Ionicons } from "@expo/vector-icons";
+import { LinearGradient } from "expo-linear-gradient";
+import { SafeAreaView, ScrollView, Text, View } from "react-native";
 
 const Settings = () => {
+  const { colours } = useTheme();
+  const settingsStyles = createSettingsStyles(colours);
   return (
-    <View style={styles.container}>
-      <Text style={styles.content}>Settings.</Text>
-    </View>
+    <LinearGradient
+      colors={colours.gradients.background}
+      style={settingsStyles.container}
+    >
+      <SafeAreaView style={settingsStyles.safeArea}>
+        <View style={settingsStyles.header}>
+          <View style={settingsStyles.titleContainer}>
+            <LinearGradient
+              colors={colours.gradients.primary}
+              style={settingsStyles.iconContainer}
+            >
+              <Ionicons name="settings" size={28} color="#ffffff" />
+            </LinearGradient>
+            <Text style={settingsStyles.title}>Settings</Text>
+          </View>
+        </View>
+
+        <ScrollView
+          style={settingsStyles.scrollView}
+          contentContainerStyle={settingsStyles.content}
+          showsVerticalScrollIndicator={false}
+        >
+          <ProgressStats />
+          <Preferences />
+          <DangerZone />
+        </ScrollView>
+      </SafeAreaView>
+    </LinearGradient>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#2d2d2d",
-  },
-
-  content: {
-    color: "#c3c3c3",
-    fontSize: 24,
-  },
-});
 
 export default Settings;
